@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import '../../Style/common.css' 
+
 const Register = () => {
     const [user, setuser] = useState({firstname:"",lastname:"",email:"",number:"",password:"",ConfirmPassword:""});
     const fetchInput = (event) => {
@@ -30,7 +32,7 @@ const Register = () => {
     }}
     return (
         <div className='container  mt-5 py-5'>
-            <form class=" w-50 mx-auto bg-white shadow-sm p-3 mb-5 bg-white rounded p-3">
+            <form class=" w-50 mx-auto bg-white shadow-sm p-3 mb-5 bg-white rounded p-3 form">
                 <div class="py-1">
                     <label for="validationDefault01" class="form-label">First name</label>
                     <input type="text" class="form-control" id="validationDefault01" name='firstname' onChange={fetchInput} value={user?.firstname || ""} required />

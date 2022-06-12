@@ -14,11 +14,11 @@ const Blog = ({ data }) => {
       created: "2022-06-05T02:55:37.062+00:00"
     },
     {
-      id: "1", heading: "Greggs X Primark Clothing Collab – Yes It’s Real & Released 19th Febru...", image: "https://static1.michael84.co.uk/wp-content/uploads/primark-greggs-collab-0.jpg"
+      id: "2", heading: "Greggs X Primark Clothing Collab – Yes It’s Real & Released 19th Febru...", image: "https://static1.michael84.co.uk/wp-content/uploads/primark-greggs-collab-0.jpg"
       , description: "It’s no joke, and it’s coming soon. That’s the Greggs x Primark Collab...", created:
         "2022-06-05T02:59:22.919+00:00"
     }, {
-      id: "1", heading
+      id: "3", heading
         :
         "Kenzo Paris Boke Flower Collection By Nigo Has Been Released",
       image
@@ -68,7 +68,12 @@ const Blog = ({ data }) => {
       
     }
   }
+  const deleteblog = (id) => {
+    const filtertodo = blogdata.filter((item) => item.id != id);
+    setBlogdata(filtertodo)
+    alert(id)
 
+}
 
   return (
     <>
@@ -90,6 +95,11 @@ const Blog = ({ data }) => {
                         <p class="card-text">{item.description}.</p>
                         <p class="card-text"><small class="text-muted">{item.created}</small></p>
                       </div>
+                      <div>
+                        {
+                          (item.id !=1 && item.id!=2 && item.id!=3)?
+                        <button onClick={()=>{deleteblog(item.id)}}>Delete</button>:<></>}
+                        </div>
                     </div>
                   ))
                 }

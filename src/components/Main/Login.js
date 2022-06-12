@@ -28,7 +28,7 @@ const Login = () => {
 
   return (
     <div className='mt-5 py-5'>
-        <form className='w-50 mx-auto   bg-white shadow-sm p-3 mb-5 bg-white rounded p-3'>
+        <form className='w-50 mx-auto bg-white shadow-sm p-3 mb-5 bg-white rounded p-3 form'>
         <div class="py-1">
                     <label for="validationDefault02" class="form-label">Email</label>
                     <input type="email" class="form-control" id="validationDefault02" name='email' onChange={fetchInput} value={user?.email || ""} required />

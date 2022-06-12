@@ -2,6 +2,8 @@ import React from 'react'
 import { connect } from 'react-redux';
 import {fetchUserData} from '../../Actions/UserAction'
 import {AiOutlineShoppingCart} from 'react-icons/ai'
+import Spinner from "react-spinkit";
+
 import '../../Style/common.css' 
 import Header from './Header';
 const services = ({data }) => {
@@ -11,7 +13,7 @@ const services = ({data }) => {
     <Header image={image}/>
     <div className='container py-5'>
       {
-        (data.users)?
+      (!data.loading)?
         <div className="row row-cols-1 row-cols-md-4 g-4">
         {
           data.users.slice(0,8).map((item)=>(
@@ -33,7 +35,8 @@ const services = ({data }) => {
           </div>
           ))
         }
-        </div>:""
+        </div>:<div className='d-flex justify-content-center'><Spinner name="double-bounce" color="blue" style={{ width: 100, height: 100 }} />
+</div>
       }
     </div>
     </>

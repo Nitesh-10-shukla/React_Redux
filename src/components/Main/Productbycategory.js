@@ -3,7 +3,8 @@ import { fetchUserData } from '../../Actions/UserAction'
 import { connect } from 'react-redux';
 import { AiOutlineShoppingCart } from 'react-icons/ai'
 import '../../Style/common.css'
- 
+import Spinner from "react-spinkit";
+
 const Productbycategory = ({ data }) => {
     const [category, setCategory] = useState([])
     const [alldata, setAlldata] = useState([])
@@ -25,7 +26,7 @@ const Productbycategory = ({ data }) => {
     }
     return (
         <div className='container mt-3 py-5' >
-            <div className='d-flex justify-content-evenly flex-wrap py-5'>
+            <div className='d-flex justify-content-evenly flex-wrap gap-3 py-5'>
                 <button className='btn btn-outline-success' onClick={() => { filterbycategory("All") }}>All</button>
                 {
                     category?.map((item) => (
@@ -36,7 +37,7 @@ const Productbycategory = ({ data }) => {
                 }
             </div>
             {
-                (alldata) ?
+                (!data.loading) ?
                     <div className="row row-cols-1 row-cols-md-4 g-4">
                         {
                             alldata.map((item) => (
@@ -58,7 +59,8 @@ const Productbycategory = ({ data }) => {
                                 </div>
                             ))
                         }
-                    </div> : <div><p>Loading....</p></div>
+                    </div> :<div className='d-flex justify-content-center'><Spinner name="double-bounce" color="blue" style={{ width: 100, height: 100 }} />
+</div>
             }
         </div>
     )
