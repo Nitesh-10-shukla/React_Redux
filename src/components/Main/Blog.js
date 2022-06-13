@@ -95,10 +95,10 @@ const Blog = ({ data }) => {
                         <p class="card-text">{item.description}.</p>
                         <p class="card-text"><small class="text-muted">{item.created}</small></p>
                       </div>
-                      <div>
+                      <div className="m-3">
                         {
                           (item.id !=1 && item.id!=2 && item.id!=3)?
-                        <button onClick={()=>{deleteblog(item.id)}}>Delete</button>:<></>}
+                        <button onClick={()=>{deleteblog(item.id)}} className="btn btn-danger m-3">Delete</button>:<></>}
                         </div>
                     </div>
                   ))
