@@ -34,9 +34,9 @@ const Blog = ({ data }) => {
   ]
   const [blogdata, setBlogdata] = useState(() => {
 
-    const savedTodos = localStorage.getItem("blog");
-    if (savedTodos) {
-      return JSON.parse(savedTodos);
+    const saveblog = localStorage.getItem("blog");
+    if (saveblog) {
+      return JSON.parse(saveblog);
     } else {
 
       return initialData;
